@@ -1,6 +1,7 @@
 import homeImage from '../assets/Home/homeImage.jpg'
 import DataComponent from './DataComponent'
 import About from './About'
+import Favorite from './Favorite'
 import Menu from './Menu'
 
 function Home() {
@@ -48,6 +49,7 @@ function Home() {
             </div>
             <About />
             <Menu />
+            <Favorite />
         </>
     )
 }
