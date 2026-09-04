@@ -5,7 +5,7 @@ import Aviso from './Aviso'
 function Carta() {
     return (
         <section className="bg-white">
-            <div className="flex flex-col items-start bg-[#f3efe8] px-6 py-24">
+            <div className="flex flex-col items-start bg-[#f3efe8] px-6 py-16">
                 <p className="text-xs uppercase tracking-wide text-[#800020]">
                     Menú
                 </p>
