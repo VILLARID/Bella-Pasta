@@ -30,11 +30,11 @@ function Home() {
                                 className="flex-1 bg-[#800020] text-center text-white py-3">
                                 Ver nuestra carta
                             </Link>
-                            <a
-                                href="#nosotros"
+                            <Link
+                                to="/nosotros"
                                 className="flex-1 border border-neutral-400 text-center text-neutral-700 py-3">
                                 Conócenos
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

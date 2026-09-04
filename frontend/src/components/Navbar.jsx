@@ -26,7 +26,7 @@ function Navbar() {
                 <div className="font-serif-display absolute left-0 right-0 top-full flex flex-col bg-white px-6 pb-6 shadow-md">
                     <Link to="/" onClick={closeMenu} className="py-3 text-xl">Inicio</Link>
                     <Link to="/carta" onClick={closeMenu} className="py-3 text-xl">Carta</Link>
-                    <a href="#nosotros" onClick={closeMenu} className="py-3 text-xl">Nosotros</a>
+                    <Link to="/nosotros" onClick={closeMenu} className="py-3 text-xl">Nosotros</Link>
                     <a href="#contacto" onClick={closeMenu} className="py-3 text-xl">Contacto</a>
                     <Link
                         to="/carta"

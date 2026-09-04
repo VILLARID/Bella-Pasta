@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 function InstagramIcon({ className }) {
     return (
@@ -80,9 +81,9 @@ function Footer() {
                             Navegación
                         </p>
                         <div className="mt-3 flex flex-col gap-2">
-                            <a href="#inicio" className="text-neutral-400">Inicio</a>
-                            <a href="#carta" className="text-neutral-400">Carta</a>
-                            <a href="#nosotros" className="text-neutral-400">Nosotros</a>
+                            <Link to="/" className="text-neutral-400">Inicio</Link>
+                            <Link to="/carta" className="text-neutral-400">Carta</Link>
+                            <Link to="/nosotros" className="text-neutral-400">Nosotros</Link>
                             <a href="#contacto" className="text-neutral-400">Contacto</a>
                         </div>
                     </div>
