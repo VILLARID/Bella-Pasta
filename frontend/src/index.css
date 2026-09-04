@@ -2,5 +2,6 @@
 @import 'tailwindcss';
 
 @theme {
+  --font-sans: "Playfair Display", serif;
   --font-serif-display: "Playfair Display", serif;
 }

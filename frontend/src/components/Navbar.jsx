@@ -7,7 +7,7 @@ function Navbar() {
     const toggleMenu = () => setIsOpen(!isOpen)
 
     return (
-        <nav className="border-b-2 border-[#d4af37]/40">
+        <nav className="relative border-b border-[#d0c8b8]">
             <div className="flex items-center justify-between px-6 py-5">
                 <a href="/" className="font-serif-display text-2xl font-semibold">
                     Bella Massa
@@ -21,7 +21,7 @@ function Navbar() {
             </div>
 
             {isOpen && (
-                <div className="font-serif-display flex flex-col px-6 pb-6">
+                <div className="font-serif-display absolute left-0 right-0 top-full flex flex-col bg-white px-6 pb-6 shadow-md">
                     <a href="#inicio" className="py-3 text-xl">Inicio</a>
                     <a href="#carta" className="py-3 text-xl">Carta</a>
                     <a href="#nosotros" className="py-3 text-xl">Nosotros</a>
