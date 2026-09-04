@@ -2,6 +2,7 @@ import aboutImage from '../assets/About/aboutImage.jpg'
 import Valores from './Valores'
 import Stats from './Stats'
 import Experiencia from './Experiencia'
+import CtaCarta from './CtaCarta'
 
 function Nosotros() {
     return (
@@ -50,6 +51,7 @@ function Nosotros() {
             <Valores />
             <Stats />
             <Experiencia />
+            <CtaCarta />
         </section>
     )
 }
