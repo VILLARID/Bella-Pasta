@@ -3,6 +3,7 @@ import DataComponent from './DataComponent'
 import About from './About'
 import Favorite from './Favorite'
 import Menu from './Menu'
+import Footer from './Footer'
 
 function Home() {
     return (
@@ -50,6 +51,7 @@ function Home() {
             <About />
             <Menu />
             <Favorite />
+            <Footer />
         </>
     )
 }

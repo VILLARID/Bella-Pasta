@@ -7,7 +7,7 @@ function Navbar() {
     const toggleMenu = () => setIsOpen(!isOpen)
 
     return (
-        <nav className="relative border-b border-[#d0c8b8]">
+        <nav className="sticky top-0 z-50 border-b border-[#d0c8b8] bg-white">
             <div className="flex items-center justify-between px-6 py-5">
                 <a href="/" className="font-serif-display text-2xl font-semibold">
                     Bella Massa
