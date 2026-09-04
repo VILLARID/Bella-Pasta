@@ -1,5 +1,6 @@
 import PizzaList from './PizzaList'
 import Bebidas from './Bebidas'
+import Aviso from './Aviso'
 
 function Carta() {
     return (
@@ -23,6 +24,7 @@ function Carta() {
                 <PizzaList showDetails />
             </div>
             <Bebidas />
+            <Aviso />
         </section>
     )
 }
