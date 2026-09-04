@@ -1,5 +1,6 @@
 import homeImage from '../assets/Home/homeImage.jpg'
 import DataComponent from './DataComponent'
+import About from './About'
 
 function Home() {
     return (
@@ -44,6 +45,7 @@ function Home() {
                     Horneada al momento
                 </div>
             </div>
+            <About />
         </>
     )
 }
