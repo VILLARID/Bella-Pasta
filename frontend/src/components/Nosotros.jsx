@@ -1,5 +1,6 @@
 import aboutImage from '../assets/About/aboutImage.jpg'
 import Valores from './Valores'
+import Stats from './Stats'
 
 function Nosotros() {
     return (
@@ -46,6 +47,7 @@ function Nosotros() {
             </div>
 
             <Valores />
+            <Stats />
         </section>
     )
 }
