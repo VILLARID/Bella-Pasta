@@ -6,6 +6,7 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleMenu = () => setIsOpen(!isOpen)
+    const closeMenu = () => setIsOpen(false)
 
     return (
         <nav className="sticky top-0 z-50 border-b border-neutral-300 bg-white">
@@ -23,12 +24,13 @@ function Navbar() {
 
             {isOpen && (
                 <div className="font-serif-display absolute left-0 right-0 top-full flex flex-col bg-white px-6 pb-6 shadow-md">
-                    <Link to="/" className="py-3 text-xl">Inicio</Link>
-                    <Link to="/carta" className="py-3 text-xl">Carta</Link>
-                    <a href="#nosotros" className="py-3 text-xl">Nosotros</a>
-                    <a href="#contacto" className="py-3 text-xl">Contacto</a>
+                    <Link to="/" onClick={closeMenu} className="py-3 text-xl">Inicio</Link>
+                    <Link to="/carta" onClick={closeMenu} className="py-3 text-xl">Carta</Link>
+                    <a href="#nosotros" onClick={closeMenu} className="py-3 text-xl">Nosotros</a>
+                    <a href="#contacto" onClick={closeMenu} className="py-3 text-xl">Contacto</a>
                     <Link
                         to="/carta"
+                        onClick={closeMenu}
                         className="mt-4 bg-black text-center text-white py-3">
                         Ver carta
                     </Link>
