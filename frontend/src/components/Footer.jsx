@@ -84,7 +84,7 @@ function Footer() {
                             <Link to="/" className="text-neutral-400">Inicio</Link>
                             <Link to="/carta" className="text-neutral-400">Carta</Link>
                             <Link to="/nosotros" className="text-neutral-400">Nosotros</Link>
-                            <a href="#contacto" className="text-neutral-400">Contacto</a>
+                            <Link to="/contacto" className="text-neutral-400">Contacto</Link>
                         </div>
                     </div>
 

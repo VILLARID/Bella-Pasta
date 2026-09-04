@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Home from './components/Home'
 import Carta from './components/Carta'
 import Nosotros from './components/Nosotros'
+import Contacto from './components/Contacto'
 
 function Layout() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="carta" element={<Carta />} />
                     <Route path="nosotros" element={<Nosotros />} />
+                    <Route path="contacto" element={<Contacto />} />
                 </Route>
             </Routes>
         </BrowserRouter>
