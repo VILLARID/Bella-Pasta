@@ -3,7 +3,7 @@ import aboutImage from '../assets/About/aboutImage.jpg'
 
 function About() {
     return (
-        <section className="mt-20 flex flex-col px-6">
+        <section className="mt-20 flex flex-col px-6 pb-12">
             <img
                 src={aboutImage}
                 alt="Fotografía de nuestra pizzería"

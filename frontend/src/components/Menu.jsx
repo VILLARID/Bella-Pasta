@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import margheritaImage from '../assets/Menu/margheritaImage.jpg'
 import pepperoniImage from '../assets/Menu/pepperoniImage.jpg'
 import prosciuttoImage from '../assets/Menu/prosciuttoImage.jpg'
@@ -56,12 +57,12 @@ function Menu() {
                     </article>
                 ))}
             </div>
-            <a
-                href="#carta-completa"
+            <Link
+                to="/carta"
                 className="mt-12 flex w-3/4 items-center justify-center gap-2 bg-black py-3 text-center text-white">
                 Ver carta completa
                 <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
         </section>
     )
 }
