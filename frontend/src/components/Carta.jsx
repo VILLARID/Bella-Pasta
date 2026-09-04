@@ -1,4 +1,5 @@
 import PizzaList from './PizzaList'
+import Bebidas from './Bebidas'
 
 function Carta() {
     return (
@@ -21,6 +22,7 @@ function Carta() {
             <div className="px-6 pt-12">
                 <PizzaList showDetails />
             </div>
+            <Bebidas />
         </section>
     )
 }
