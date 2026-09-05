@@ -89,33 +89,39 @@ const pizzas = [
     },
 ]
 
-function PizzaList({ showDetails = false }) {
+function PizzaList({ showDetails = false, limit }) {
     const [selectedPizza, setSelectedPizza] = useState(null)
 
+    const visiblePizzas = limit ? pizzas.slice(0, limit) : pizzas
+
     return (
-        <div className="flex flex-col gap-14">
-            {pizzas.map((pizza) => (
+        <div className="grid gap-14 lg:grid-cols-3 lg:items-start lg:gap-x-0 lg:gap-y-16">
+            {visiblePizzas.map((pizza) => (
                 <article key={pizza.name} className="flex flex-col">
                     <img
                         src={pizza.image}
                         alt={pizza.name}
-                        className="aspect-[4/3] w-full object-cover"
+                        className="aspect-[4/3] w-full object-cover lg:px-6 xl:px-10"
                     />
-                    <div className="mt-5 flex items-center justify-between gap-4">
-                        <h3 className="shrink-0 text-2xl font-semibold">{pizza.name}</h3>
-                        <span className="flex-1 border-b border-dotted border-neutral-300" />
-                        <p className="shrink-0 text-2xl text-[#800020]">{pizza.price}</p>
+                    <div className="lg:mt-6 lg:border-t lg:border-neutral-200 lg:px-6 lg:pt-6 xl:px-10">
+                        <div className="flex items-center justify-between gap-4">
+                            <h3 className="shrink-0 text-2xl font-semibold text-neutral-900 lg:text-[1.4rem]">{pizza.name}</h3>
+                            <span className="mx-2 flex-1 border-b border-dotted border-neutral-300" />
+                            <p className="shrink-0 text-2xl text-[#800020] lg:font-body lg:text-base lg:font-bold">
+                                {pizza.price}
+                            </p>
+                        </div>
+                        <p className="mt-3 text-sm leading-relaxed text-neutral-500 lg:font-body">
+                            {pizza.description}
+                        </p>
+                        {showDetails && (
+                            <button
+                                onClick={() => setSelectedPizza(pizza)}
+                                className="mt-5 flex items-center justify-center gap-2 border border-neutral-400 py-2 text-neutral-700">
+                                Ver detalles
+                            </button>
+                        )}
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-neutral-500">
-                        {pizza.description}
-                    </p>
-                    {showDetails && (
-                        <button
-                            onClick={() => setSelectedPizza(pizza)}
-                            className="mt-5 flex items-center justify-center gap-2 border border-neutral-400 py-2 text-neutral-700">
-                            Ver detalles
-                        </button>
-                    )}
                 </article>
             ))}
             <AnimatePresence>
