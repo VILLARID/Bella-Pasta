@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import favoriteImage from '../assets/Favorite/favoriteImage.jpg'
 
 function Favorite() {
@@ -21,12 +22,12 @@ function Favorite() {
                     San Marzano, burrata fresca, prosciutto cotto y albahaca del huerto.
                 </p>
                 <p className="mt-4 text-2xl text-[#800020]">S/ 52</p>
-                <a
-                    href="#descubrir"
+                <Link
+                    to="/carta"
                     className="mt-6 flex w-3/4 items-center justify-center gap-2 bg-black py-3 text-center text-white">
                     Descubrir
                     <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
             </div>
         </section>
     )

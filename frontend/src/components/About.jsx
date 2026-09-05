@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import aboutImage from '../assets/About/aboutImage.jpg'
 
 function About() {
@@ -22,12 +23,12 @@ function About() {
                 Seleccionamos nuestros ingredientes, respetamos los tiempos y cuidamos cada
                 detalle para llevar a la mesa una pizza sencilla, auténtica y llena de sabor.
             </p>
-            <a
-                href="#historia"
+            <Link
+                to="/nosotros"
                 className="mt-6 flex w-3/4 items-center justify-center gap-2 border border-neutral-400 py-3 text-center text-neutral-700">
                 Conoce nuestra historia
                 <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
         </section>
     )
 }

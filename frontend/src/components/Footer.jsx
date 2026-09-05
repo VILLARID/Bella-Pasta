@@ -55,12 +55,12 @@ function Footer() {
                     <h2 className="mt-3 text-3xl font-semibold leading-snug text-white">
                         Te esperamos en Bella Massa.
                     </h2>
-                    <a
-                        href="#ubicacion"
+                    <Link
+                        to="/contacto"
                         className="mt-4 flex w-max items-center gap-2 border border-white py-2 px-4 text-white">
                         Ver cómo llegar
                         <ArrowRight className="h-4 w-4" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div>
@@ -69,9 +69,9 @@ function Footer() {
                         La pizza que empieza con una buena masa.
                     </p>
                     <div className="mt-4 flex gap-4 text-white">
-                        <a href="#" aria-label="Instagram"><InstagramIcon className="h-5 w-5" /></a>
-                        <a href="#" aria-label="Facebook"><FacebookIcon className="h-5 w-5" /></a>
-                        <a href="#" aria-label="TikTok"><TikTokIcon className="h-5 w-5" /></a>
+                        <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon className="h-5 w-5" /></a>
+                        <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><FacebookIcon className="h-5 w-5" /></a>
+                        <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok"><TikTokIcon className="h-5 w-5" /></a>
                     </div>
                 </div>
 
