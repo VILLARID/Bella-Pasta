@@ -5,3 +5,8 @@
   --font-sans: "Playfair Display", serif;
   --font-serif-display: "Playfair Display", serif;
 }
+
+.map-cream .leaflet-tile-pane {
+  filter: grayscale(1) sepia(0.35) saturate(0.8) brightness(1.08);
+  mix-blend-mode: multiply;
+}

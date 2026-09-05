@@ -1,4 +1,32 @@
 import { ArrowRight } from 'lucide-react'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { useEffect } from 'react'
+import L from 'leaflet'
+import AvisoDelivery from './AvisoDelivery'
+import 'leaflet/dist/leaflet.css'
+
+function EnableOnClick() {
+    const map = useMap()
+
+    useEffect(() => {
+        map.dragging.disable()
+        map.scrollWheelZoom.disable()
+        const enable = () => map.dragging.enable()
+        map.on('click', enable)
+        return () => {
+            map.off('click', enable)
+        }
+    }, [map])
+
+    return null
+}
+
+const bellaMassaPin = L.divIcon({
+    className: '',
+    html: '<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#800020" d="M12 0C7 0 3 4 3 9c0 6.5 9 15 9 15s9-8.5 9-15c0-5-4-9-9-9z"/><circle cx="12" cy="9" r="4" fill="#f3efe8"/></svg>',
+    iconSize: [36, 36],
+    iconAnchor: [18, 36],
+})
 
 function InstagramIcon({ className }) {
     return (
@@ -127,6 +155,29 @@ function Contacto() {
                     </div>
                 </div>
             </div>
+
+            <div className="relative z-0 pb-16">
+                <div className="map-cream h-72 w-full">
+                    <MapContainer
+                        center={[-12.1224, -77.0306]}
+                        zoom={16}
+                        dragging={false}
+                        className="z-0 h-full w-full">
+                    <EnableOnClick />
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[-12.1224, -77.0306]} icon={bellaMassaPin}>
+                        <Popup>
+                            Bella Massa · Miraflores
+                        </Popup>
+                    </Marker>
+                    </MapContainer>
+                </div>
+            </div>
+
+            <AvisoDelivery />
         </section>
     )
 }
