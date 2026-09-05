@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import margheritaImage from '../assets/Menu/margheritaImage.jpg'
 import pepperoniImage from '../assets/Menu/pepperoniImage.jpg'
 import prosciuttoImage from '../assets/Menu/prosciuttoImage.jpg'
@@ -117,7 +118,11 @@ function PizzaList({ showDetails = false }) {
                     )}
                 </article>
             ))}
-            <PizzaModal pizza={selectedPizza} onClose={() => setSelectedPizza(null)} />
+            <AnimatePresence>
+                {selectedPizza && (
+                    <PizzaModal pizza={selectedPizza} onClose={() => setSelectedPizza(null)} />
+                )}
+            </AnimatePresence>
         </div>
     )
 }

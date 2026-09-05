@@ -1,29 +1,59 @@
 import homeImage from '../assets/Home/homeImage.jpg'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import DataComponent from './DataComponent'
 import About from './About'
 import Favorite from './Favorite'
 import Menu from './Menu'
 
+const heroContainer = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.12,
+            delayChildren: 0.15,
+        },
+    },
+}
+
+const heroItem = {
+    hidden: { opacity: 0, y: 18 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
+}
+
 function Home() {
     return (
         <>
             <div className="bg-gradient-to-b from-white to-[#f3efe8]">
-                <section className="flex flex-col px-6 py-12">
-                    <p className="text-sm text-[#800020]">
+                <motion.section
+                    variants={heroContainer}
+                    initial="hidden"
+                    animate="show"
+                    className="flex flex-col px-6 py-12">
+                    <motion.p
+                        variants={heroItem}
+                        className="text-sm text-[#800020]">
                         Pizzería italiana · Lima, Perú
-                    </p>
-                    <h1 className="mt-4 text-5xl font-semibold leading-tight">
+                    </motion.p>
+                    <motion.h1
+                        variants={heroItem}
+                        className="mt-4 text-5xl font-semibold leading-tight">
                         El arte de
                         <br />
                         una buena
                         <br />
                         pizza.
-                    </h1>
-                    <p className="mt-4 text-lg text-neutral-600">
+                    </motion.h1>
+                    <motion.p
+                        variants={heroItem}
+                        className="mt-4 text-lg text-neutral-600">
                         Ingredientes seleccionados, masa artesanal y el auténtico sabor de Italia.
-                    </p>
-                    <div className="mt-8 flex flex-col gap-4">
+                    </motion.p>
+                    <motion.div variants={heroItem} className="mt-8 flex flex-col gap-4">
                         <div className="flex gap-4">
                             <Link
                                 to="/carta"
@@ -36,8 +66,8 @@ function Home() {
                                 Conócenos
                             </Link>
                         </div>
-                    </div>
-                </section>
+                    </motion.div>
+                </motion.section>
                 <DataComponent />
                 <div className="relative mt-6">
                     <img
