@@ -4,6 +4,7 @@
 @theme {
   --font-sans: "Playfair Display", serif;
   --font-serif-display: "Playfair Display", serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .map-cream .leaflet-tile-pane {
