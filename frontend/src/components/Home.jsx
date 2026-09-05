@@ -106,7 +106,9 @@ function Home() {
                         </div>
                     </motion.div>
                 </motion.section>
-                <DataComponent />
+                <div className="lg:hidden">
+                    <DataComponent />
+                </div>
                 <div className="relative mt-6 lg:hidden">
                     <img
                         src={homeImage}
