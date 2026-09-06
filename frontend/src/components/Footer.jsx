@@ -46,76 +46,87 @@ function TikTokIcon({ className }) {
 
 function Footer() {
     return (
-        <footer className="bg-[#141414] px-6 pb-8 pt-14 text-neutral-300">
-            <div className="flex flex-col gap-12">
-                <div>
-                    <p className="text-xs uppercase tracking-wide text-[#c9a94a]">
-                        Miraflores, Lima
-                    </p>
-                    <h2 className="mt-3 text-3xl font-semibold leading-snug text-white">
-                        Te esperamos en Bella Massa.
-                    </h2>
+        <footer className="bg-[#141414] px-6 pb-8 pt-14 text-neutral-300 lg:px-16 lg:pb-10 lg:pt-20 xl:px-24">
+            <div className="flex flex-col gap-12 lg:gap-0">
+                <div className="lg:flex lg:items-end lg:justify-between lg:border-b lg:border-neutral-800 lg:pb-14">
+                    <div>
+                        <p className="text-xs uppercase tracking-[0.25em] text-[#c9a94a]">
+                            Miraflores, Lima
+                        </p>
+                        <h2 className="mt-3 text-3xl font-semibold leading-snug text-white lg:text-5xl lg:leading-tight">
+                            Te esperamos en Bella Massa.
+                        </h2>
+                    </div>
                     <Link
                         to="/contacto"
-                        className="mt-4 flex w-max items-center gap-2 border border-white py-2 px-4 text-white">
+                        className="mt-6 flex w-max items-center gap-2 border border-white py-3 px-6 text-white transition-colors hover:border-[#c9a94a] hover:text-[#c9a94a] lg:mt-0">
                         Ver cómo llegar
                         <ArrowRight className="h-4 w-4" />
                     </Link>
                 </div>
 
-                <div>
-                    <p className="text-xl font-semibold text-white">Bella Massa</p>
-                    <p className="mt-2 text-neutral-400">
-                        La pizza que empieza con una buena masa.
-                    </p>
-                    <div className="mt-4 flex gap-4 text-white">
-                        <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon className="h-5 w-5" /></a>
-                        <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><FacebookIcon className="h-5 w-5" /></a>
-                        <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok"><TikTokIcon className="h-5 w-5" /></a>
-                    </div>
-                </div>
-
-                <div className="flex items-start justify-between">
+                <div className="flex flex-col gap-12 lg:grid lg:grid-cols-4 lg:content-start lg:gap-8 lg:pt-14">
                     <div>
-                        <p className="text-xs uppercase tracking-wide text-[#c9a94a]">
-                            Navegación
+                        <div className="flex items-center gap-3">
+                            <p className="font-serif-display text-2xl font-semibold text-white lg:text-3xl">
+                                Bella Massa
+                            </p>
+                            <span className="h-1.5 w-1.5 rotate-45 bg-[#c9a94a]" />
+                        </div>
+                        <p className="mt-3 max-w-xs text-neutral-400">
+                            La pizza que empieza con una buena masa.
                         </p>
-                        <div className="mt-3 flex flex-col gap-2">
-                            <Link to="/" className="text-neutral-400">Inicio</Link>
-                            <Link to="/carta" className="text-neutral-400">Carta</Link>
-                            <Link to="/nosotros" className="text-neutral-400">Nosotros</Link>
-                            <Link to="/contacto" className="text-neutral-400">Contacto</Link>
+                        <div className="mt-6 flex gap-5 text-white">
+                            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition-colors hover:text-[#c9a94a]"><InstagramIcon className="h-5 w-5" /></a>
+                            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="transition-colors hover:text-[#c9a94a]"><FacebookIcon className="h-5 w-5" /></a>
+                            <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok" className="transition-colors hover:text-[#c9a94a]"><TikTokIcon className="h-5 w-5" /></a>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start justify-between lg:contents">
+                        <div>
+                            <p className="text-xs uppercase tracking-[0.25em] text-[#c9a94a]">
+                                Navegación
+                            </p>
+                            <div className="mt-4 flex flex-col gap-2.5">
+                                <Link to="/" className="w-max text-neutral-400 transition-colors hover:text-white">Inicio</Link>
+                                <Link to="/carta" className="w-max text-neutral-400 transition-colors hover:text-white">Carta</Link>
+                                <Link to="/nosotros" className="w-max text-neutral-400 transition-colors hover:text-white">Nosotros</Link>
+                                <Link to="/contacto" className="w-max text-neutral-400 transition-colors hover:text-white">Contacto</Link>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p className="text-xs uppercase tracking-[0.25em] text-[#c9a94a]">
+                                Horarios
+                            </p>
+                            <div className="mt-4 text-neutral-400">
+                                <p>Lun – Jue: 12:00 – 22:00</p>
+                                <p>Vie – Sáb: 12:00 – 23:00</p>
+                                <p>Dom: 12:00 – 21:00</p>
+                            </div>
                         </div>
                     </div>
 
                     <div>
-                        <p className="text-xs uppercase tracking-wide text-[#c9a94a]">
-                            Horarios
+                        <p className="text-xs uppercase tracking-[0.25em] text-[#c9a94a]">
+                            Contacto
                         </p>
-                        <div className="mt-3 text-neutral-400">
-                            <p>Lun – Jue: 12:00 – 22:00</p>
-                            <p>Vie – Sáb: 12:00 – 23:00</p>
-                            <p>Dom: 12:00 – 21:00</p>
+                        <div className="mt-4 text-neutral-400">
+                            <p>Av. La Mar 459, Miraflores</p>
+                            <p>Lima, Perú</p>
+                            <p>+51 1 234 5678</p>
+                            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-white">
+                                @bellamassa.pe
+                            </a>
                         </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p className="text-xs uppercase tracking-wide text-[#c9a94a]">
-                        Contacto
-                    </p>
-                    <div className="mt-3 text-neutral-400">
-                        <p>Av. La Mar 459, Miraflores</p>
-                        <p>Lima, Perú</p>
-                        <p>+51 1 234 5678</p>
-                        <p>@bellamassa.pe</p>
                     </div>
                 </div>
             </div>
 
-            <div className="mt-12 flex flex-col gap-2 border-t border-neutral-700 pt-6 text-sm text-neutral-500">
+            <div className="mt-12 flex flex-col gap-2 border-t border-neutral-800 pt-6 text-sm text-neutral-500 lg:mt-16 lg:flex-row lg:items-center lg:justify-between">
                 <p>© 2026 Bella Massa. Todos los derechos reservados.</p>
-                <p>Lima · Perú</p>
+                <p className="text-[#c9a94a]/70">Lima · Perú</p>
             </div>
         </footer>
     )
