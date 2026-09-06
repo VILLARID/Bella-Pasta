@@ -21,11 +21,11 @@ function Carta() {
                     Clásicos italianos y creaciones de Bella Massa.
                 </p>
             </div>
-            <div className="flex items-center gap-4 px-6 pt-16">
-                <h2 className="shrink-0 text-3xl font-semibold">Pizzas</h2>
+            <div className="flex items-center gap-4 px-6 pt-16 lg:px-20 lg:pt-20 xl:px-32">
+                <h2 className="shrink-0 text-3xl font-semibold lg:text-4xl">Pizzas</h2>
                 <span className="flex-1 border-t border-neutral-300" />
             </div>
-            <div className="px-6 pt-12">
+            <div className="px-6 pt-12 lg:px-20 lg:pt-16 xl:px-32">
                 <PizzaList showDetails />
             </div>
             <Bebidas />

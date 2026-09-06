@@ -75,6 +75,7 @@ const pizzas = [
         image: favoriteImage,
         name: 'Bella Massa',
         price: 'S/ 52',
+        special: true,
         description:
             'Masa madre, tomate San Marzano, burrata fresca, prosciutto cotto y albahaca del huerto.',
         story:
@@ -95,31 +96,47 @@ function PizzaList({ showDetails = false, limit }) {
     const visiblePizzas = limit ? pizzas.slice(0, limit) : pizzas
 
     return (
-        <div className="grid gap-14 lg:grid-cols-3 lg:items-start lg:gap-x-0 lg:gap-y-16">
+        <div className="grid gap-14 lg:grid-cols-3 lg:items-stretch lg:gap-x-0 lg:gap-y-16">
             {visiblePizzas.map((pizza) => (
-                <article key={pizza.name} className="flex flex-col">
-                    <img
-                        src={pizza.image}
-                        alt={pizza.name}
-                        className="aspect-[4/3] w-full object-cover lg:px-6 xl:px-10"
-                    />
-                    <div className="lg:mt-6 lg:border-t lg:border-neutral-200 lg:px-6 lg:pt-6 xl:px-10">
+                <article key={pizza.name} className="group flex flex-col">
+                    <div className="relative overflow-hidden">
+                        <img
+                            src={pizza.image}
+                            alt={pizza.name}
+                            className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+                        {pizza.special && (
+<div className="absolute left-4 top-4 bg-[#800020]/90 px-3 py-1.5 backdrop-blur-sm">
+                                    <span className="text-[9px] uppercase tracking-[0.25em] text-[#f3efe8]">
+                                        Especial de la casa
+                                    </span>
+                                </div>
+                        )}
+                    </div>
+                    <div className="flex flex-1 flex-col pt-6 lg:px-6 lg:pt-8 xl:px-8">
                         <div className="flex items-center justify-between gap-4">
-                            <h3 className="shrink-0 text-2xl font-semibold text-neutral-900 lg:text-[1.4rem]">{pizza.name}</h3>
-                            <span className="mx-2 flex-1 border-b border-dotted border-neutral-300" />
-                            <p className="shrink-0 text-2xl text-[#800020] lg:font-body lg:text-base lg:font-bold">
+<h3 className="flex shrink-0 items-center gap-2.5 text-2xl font-semibold text-neutral-900 lg:text-[1.4rem]">
+                                    {pizza.special && (
+                                        <span className="h-1.5 w-1.5 rotate-45 bg-[#800020]" />
+                                    )}
+                                    {pizza.name}
+                                </h3>
+                            <span className="flex-1 border-b border-dotted border-neutral-400" />
+                            <p className="shrink-0 text-2xl font-bold text-[#800020] lg:font-body lg:text-base">
                                 {pizza.price}
                             </p>
                         </div>
-                        <p className="mt-3 text-sm leading-relaxed text-neutral-500 lg:font-body">
+                        <p className="mt-3 text-sm leading-relaxed text-[#666] lg:font-body lg:leading-7">
                             {pizza.description}
                         </p>
                         {showDetails && (
-                            <button
-                                onClick={() => setSelectedPizza(pizza)}
-                                className="mt-5 flex items-center justify-center gap-2 border border-neutral-400 py-2 text-neutral-700">
-                                Ver detalles
-                            </button>
+                            <div className="pt-6 lg:mt-auto">
+                                <button
+                                    onClick={() => setSelectedPizza(pizza)}
+                                    className="flex w-full items-center justify-center gap-2 border border-neutral-400 py-2.5 text-neutral-700 transition-colors hover:border-[#800020] hover:text-[#800020]">
+                                    Ver detalles
+                                </button>
+                            </div>
                         )}
                     </div>
                 </article>
