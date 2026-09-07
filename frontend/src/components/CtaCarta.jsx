@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 function CtaCarta() {
     return (
         <section className="bg-[#e9dfcb] px-6 py-16 lg:px-20 lg:py-24 xl:px-32">
-            <div className="flex flex-col items-center text-center">
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col items-center text-center">
                 <div className="flex items-center gap-3">
                     <span className="h-px w-10 bg-[#C5A880]/60" />
                     <span className="h-1.5 w-1.5 rotate-45 bg-[#C5A880]" />
@@ -24,7 +30,7 @@ function CtaCarta() {
                     Ver nuestra carta
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
-            </div>
+            </motion.div>
         </section>
     )
 }

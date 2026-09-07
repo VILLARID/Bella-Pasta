@@ -71,109 +71,153 @@ function TikTokIcon({ className }) {
     )
 }
 
+const info = [
+    {
+        label: 'Dirección',
+        values: ['Av. La Mar 459, Miraflores', 'Lima, Perú'],
+    },
+    {
+        label: 'Horarios',
+        values: ['Lun – Jue: 12:00 – 22:00', 'Vie – Sáb: 12:00 – 23:00', 'Dom: 12:00 – 21:00'],
+    },
+    {
+        label: 'Teléfono',
+        values: ['+51 1 234 5678'],
+    },
+    {
+        label: 'Instagram',
+        values: ['@bellamassa.pe'],
+    },
+]
+
 function Contacto() {
     return (
-        <section className="bg-[#f3efe8] px-6">
-            <div className="flex flex-col items-start py-16">
-                <p className="text-xs uppercase tracking-wide text-[#800020]">
+        <section className="bg-[#f3efe8]">
+            <div className="px-6 pb-10 pt-16 lg:px-20 lg:pb-12 lg:pt-24 xl:px-32">
+                <p className="font-body text-[10px] font-medium uppercase tracking-[0.3em] text-[#800020]">
                     Encuéntranos
                 </p>
-                <h1 className="mt-3 text-4xl font-semibold leading-tight">
-                    Te esperamos
-                    <br />
-                    en Bella Massa.
+                <h1 className="mt-5 font-serif-display text-4xl font-medium leading-[1.15] text-[#2b241c] lg:text-6xl">
+                    Te esperamos en{' '}
+                    <em className="italic text-[#800020]">Bella Massa.</em>
                 </h1>
+                <div className="mt-8 flex items-center gap-3">
+                    <span className="h-px w-12 bg-[#C5A880]/50" />
+                    <span className="h-1.5 w-1.5 rotate-45 bg-[#C5A880]" />
+                    <span className="h-px flex-1 bg-[#C5A880]/20" />
+                </div>
             </div>
 
-            <div className="flex flex-col divide-y divide-neutral-300">
-                <div className="py-6">
-                    <p className="text-xs uppercase tracking-wide text-[#800020]">
-                        Dirección
-                    </p>
-                    <p className="mt-3 text-neutral-700">Av. La Mar 459, Miraflores</p>
-                    <p className="text-neutral-700">Lima, Perú</p>
+            <div className="px-6 lg:grid lg:grid-cols-12 lg:gap-16 lg:px-20 lg:py-8 xl:px-32">
+                <div className="flex flex-col lg:col-span-5">
+                    {info.map((block) => (
+                        <div
+                            key={block.label}
+                            className="flex flex-col border-t border-[#C5A880]/20 py-8 first:border-t-0 first:pt-0 lg:py-10">
+                            <div className="flex items-center gap-3">
+                                <span className="h-1 w-1 rotate-45 bg-[#C5A880]" />
+                                <p className="font-body text-[10px] font-medium uppercase tracking-[0.3em] text-[#800020]">
+                                    {block.label}
+                                </p>
+                            </div>
+                            <div className="mt-4 flex flex-col gap-1">
+                                {block.values.map((value) => (
+                                    <p
+                                        key={value}
+                                        className="font-serif-display text-lg font-normal text-[#3b3329] lg:text-[1.35rem]">
+                                        {value}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+
+                    <a
+                        href="https://maps.google.com/?q=Av.+La+Mar+459,+Miraflores,+Lima"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group mt-4 flex w-max items-center gap-3 bg-[#2b241c] px-8 py-3.5 text-white transition-colors hover:bg-[#800020]">
+                        Cómo llegar
+                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </a>
                 </div>
 
-                <div className="py-6">
-                    <p className="text-xs uppercase tracking-wide text-[#800020]">
-                        Horarios
+                <div className="mt-12 lg:col-span-7 lg:mt-0">
+                    <div className="border border-[#C5A880]/40 p-2 lg:p-3">
+                        <div className="map-cream relative z-0 h-72 w-full lg:h-[440px]">
+                            <MapContainer
+                                center={[-12.1224, -77.0306]}
+                                zoom={16}
+                                dragging={false}
+                                className="z-0 h-full w-full">
+                                <EnableOnClick />
+                                <TileLayer
+                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                />
+                                <Marker position={[-12.1224, -77.0306]} icon={bellaMassaPin}>
+                                    <Popup>Bella Massa · Miraflores</Popup>
+                                </Marker>
+                            </MapContainer>
+                        </div>
+                    </div>
+                    <p className="mt-4 flex items-center gap-3">
+                        <span className="h-1.5 w-1.5 rotate-45 bg-[#C5A880]" />
+                        <span className="font-body text-[10px] uppercase tracking-[0.25em] text-neutral-500">
+                            Parque Kennedy · Miraflores
+                        </span>
                     </p>
-                    <p className="mt-3 text-neutral-700">Lun – Jue: 12:00 – 22:00</p>
-                    <p className="text-neutral-700">Vie – Sáb: 12:00 – 23:00</p>
-                    <p className="text-neutral-700">Dom: 12:00 – 21:00</p>
                 </div>
-
-                <div className="py-6">
-                    <p className="text-xs uppercase tracking-wide text-[#800020]">
-                        Teléfono
-                    </p>
-                    <p className="mt-3 text-neutral-700">+51 1 234 5678</p>
-                </div>
-
-                <div className="py-6">
-                    <p className="text-xs uppercase tracking-wide text-[#800020]">
-                        Instagram
-                    </p>
-                    <p className="mt-3 text-neutral-700">@bellamassa.pe</p>
-                </div>
-
-                <a
-                    href="https://maps.google.com/?q=Av.+La+Mar+459,+Miraflores,+Lima"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 flex w-max items-center gap-2 bg-black px-8 py-3 text-white">
-                    Cómo llegar
-                    <ArrowRight className="h-4 w-4" />
-                </a>
             </div>
 
-            <div className="py-16">
-                <p className="text-xs uppercase tracking-wide text-[#800020]">
-                    Síguenos
-                </p>
-                <div className="mt-6 grid grid-cols-3 gap-3">
-                    <div className="flex flex-col items-center border border-neutral-300 px-2 py-6 text-center">
-                        <InstagramIcon className="h-5 w-5 text-neutral-500" />
-                        <p className="mt-3 text-[10px] uppercase tracking-wider text-neutral-500">
+            <div className="px-6 py-16 lg:px-20 lg:py-24 xl:px-32">
+                <div className="flex items-center gap-4">
+                    <p className="shrink-0 font-body text-[10px] font-bold uppercase tracking-[0.3em] text-[#800020]">
+                        Síguenos
+                    </p>
+                    <span className="h-px flex-1 bg-[#C5A880]/40" />
+                </div>
+
+                <div className="mt-8 grid grid-cols-3 border border-[#C5A880]/30">
+                    <a
+                        href="https://instagram.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex flex-col items-center gap-3 py-8 transition-colors hover:bg-white lg:py-10">
+                        <span className="flex h-11 w-11 items-center justify-center border border-neutral-400 text-neutral-500 transition-colors group-hover:border-[#800020] group-hover:text-[#800020] lg:h-12 lg:w-12">
+                            <InstagramIcon className="h-5 w-5" />
+                        </span>
+                        <span className="font-body text-[9px] uppercase tracking-[0.25em] text-neutral-500">
                             Instagram
-                        </p>
-                        <p className="mt-1.5 text-xs leading-tight text-neutral-700">@bellamassa.pe</p>
-                    </div>
-                    <div className="flex flex-col items-center border border-neutral-300 px-2 py-6 text-center">
-                        <FacebookIcon className="h-5 w-5 text-neutral-500" />
-                        <p className="mt-3 text-[10px] uppercase tracking-wider text-neutral-500">
+                        </span>
+                        <span className="font-body text-xs text-[#2b241c]">@bellamassa.pe</span>
+                    </a>
+                    <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex flex-col items-center gap-3 border-x border-[#C5A880]/30 py-8 transition-colors hover:bg-white lg:py-10">
+                        <span className="flex h-11 w-11 items-center justify-center border border-neutral-400 text-neutral-500 transition-colors group-hover:border-[#800020] group-hover:text-[#800020] lg:h-12 lg:w-12">
+                            <FacebookIcon className="h-5 w-5" />
+                        </span>
+                        <span className="font-body text-[9px] uppercase tracking-[0.25em] text-neutral-500">
                             Facebook
-                        </p>
-                        <p className="mt-1.5 text-xs leading-tight text-neutral-700">Bella Massa</p>
-                    </div>
-                    <div className="flex flex-col items-center border border-neutral-300 px-2 py-6 text-center">
-                        <TikTokIcon className="h-5 w-5 text-neutral-500" />
-                        <p className="mt-3 text-[10px] uppercase tracking-wider text-neutral-500">
+                        </span>
+                        <span className="font-body text-xs text-[#2b241c]">Bella Massa</span>
+                    </a>
+                    <a
+                        href="https://tiktok.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex flex-col items-center gap-3 py-8 transition-colors hover:bg-white lg:py-10">
+                        <span className="flex h-11 w-11 items-center justify-center border border-neutral-400 text-neutral-500 transition-colors group-hover:border-[#800020] group-hover:text-[#800020] lg:h-12 lg:w-12">
+                            <TikTokIcon className="h-5 w-5" />
+                        </span>
+                        <span className="font-body text-[9px] uppercase tracking-[0.25em] text-neutral-500">
                             TikTok
-                        </p>
-                        <p className="mt-1.5 text-xs leading-tight text-neutral-700">@bellamassa</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="relative z-0 pb-16">
-                <div className="map-cream h-72 w-full">
-                    <MapContainer
-                        center={[-12.1224, -77.0306]}
-                        zoom={16}
-                        dragging={false}
-                        className="z-0 h-full w-full">
-                    <EnableOnClick />
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={[-12.1224, -77.0306]} icon={bellaMassaPin}>
-                        <Popup>
-                            Bella Massa · Miraflores
-                        </Popup>
-                    </Marker>
-                    </MapContainer>
+                        </span>
+                        <span className="font-body text-xs text-[#2b241c]">@bellamassa</span>
+                    </a>
                 </div>
             </div>
 

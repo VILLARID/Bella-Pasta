@@ -3,11 +3,19 @@ import Valores from './Valores'
 import Stats from './Stats'
 import Experiencia from './Experiencia'
 import CtaCarta from './CtaCarta'
+import { motion } from 'framer-motion'
+
+const fadeUp = {
+    initial: { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-60px' },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+}
 
 function Nosotros() {
     return (
         <section className="bg-white">
-            <div className="px-6 pt-16 lg:px-20 lg:pt-24 xl:px-32">
+            <motion.div {...fadeUp} className="px-6 pt-16 lg:px-20 lg:pt-24 xl:px-32">
                 <p className="font-body text-xs uppercase tracking-[0.3em] text-[#800020]">
                     Quiénes somos
                 </p>
@@ -16,9 +24,12 @@ function Nosotros() {
                     <br />
                     una pizzería.
                 </h1>
-            </div>
+            </motion.div>
 
-            <div className="grid gap-10 px-6 py-14 lg:grid-cols-12 lg:gap-16 lg:px-20 lg:py-24 xl:px-32">
+            <motion.div
+                {...fadeUp}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+                className="grid gap-10 px-6 py-14 lg:grid-cols-12 lg:gap-16 lg:px-20 lg:py-24 xl:px-32">
                 <div className="relative self-start lg:col-span-5">
                     <img
                         src={aboutImage}
@@ -48,7 +59,7 @@ function Nosotros() {
                         oportunidad de hacerlo mejor.
                     </p>
                 </div>
-            </div>
+            </motion.div>
 
             <Valores />
             <Stats />

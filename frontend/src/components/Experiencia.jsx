@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import interiorImage from '../assets/Experiencia/interiorImage.jpg'
 import hornoImage from '../assets/Experiencia/hornoImage.jpg'
 import localImage from '../assets/Experiencia/localImage.jpg'
@@ -35,9 +36,17 @@ function FlipCard({ photo, index, figureClass, imgClass }) {
     const [flipped, setFlipped] = useState(false)
 
     return (
-        <figure
+        <motion.figure
             className={`${figureClass} cursor-pointer`}
             style={{ perspective: '1200px' }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+                delay: index * 0.08,
+            }}
             onMouseEnter={() => setFlipped(true)}
             onMouseLeave={() => setFlipped(false)}>
             <div
@@ -91,19 +100,24 @@ function FlipCard({ photo, index, figureClass, imgClass }) {
                     {photo.label}
                 </span>
             </figcaption>
-        </figure>
+        </motion.figure>
     )
 }
 
 function Experiencia() {
     return (
         <section className="bg-[#f3efe8] px-6 py-16 lg:px-20 lg:py-24 xl:px-32">
-            <div className="flex items-center gap-4">
-                <p className="shrink-0 font-body text-[10px] uppercase tracking-[0.3em] text-[#800020]">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-4">
+                <p className="shrink-0 font-body text-[10px] font-medium uppercase tracking-[0.3em] text-[#800020]">
                     Experiencia
                 </p>
-                <span className="h-px flex-1 bg-[#C5A880]/40" />
-            </div>
+                <span className="h-px flex-1 bg-[#C5A880]/30" />
+            </motion.div>
             <h2 className="mt-4 font-serif-display text-3xl font-semibold leading-snug text-[#2b241c] lg:text-4xl">
                 Más que una pizza.
             </h2>

@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 const stats = [
     { value: '+6', label: 'Años en Miraflores' },
     { value: '48h', label: 'Fermentación de la masa' },
@@ -10,16 +12,24 @@ function Stats() {
         <section className="bg-[#121212] px-6 py-16 lg:px-20 lg:py-20 xl:px-32">
             <div className="grid grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat, index) => (
-                    <div
+                    <motion.div
                         key={stat.label}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{
+                            duration: 0.8,
+                            ease: [0.22, 1, 0.36, 1],
+                            delay: index * 0.1,
+                        }}
                         className={`flex flex-col items-start justify-center py-10 ${
-                            index % 2 === 1 ? 'border-l border-neutral-800' : ''
+                            index % 2 === 1 ? 'border-l border-neutral-800/60' : ''
                         } ${
-                            index >= 2 ? 'border-t border-neutral-800' : ''
+                            index >= 2 ? 'border-t border-neutral-800/60' : ''
                         } lg:py-8 ${
                             index % 2 === 1 && index % 4 !== 0 ? 'lg:border-l-0' : ''
                         } ${
-                            index > 0 ? 'lg:border-l lg:border-neutral-800' : ''
+                            index > 0 ? 'lg:border-l lg:border-neutral-800/60' : ''
                         } ${
                             index >= 2 ? 'lg:border-t-0' : ''
                         } lg:px-10 xl:px-12 ${
@@ -31,7 +41,7 @@ function Stats() {
                         <p className="mt-4 max-w-[10rem] text-[10px] leading-relaxed tracking-[0.15em] text-[#8A9A86]">
                             {stat.label}
                         </p>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>
